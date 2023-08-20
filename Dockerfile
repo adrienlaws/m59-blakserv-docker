@@ -21,12 +21,14 @@ RUN apk update && \
     mv /m59files/accounts.1692158715 /opt/Meridian59/run/server/savegame/accounts.1692158715 && \
     mv /m59files/*.rsc /opt/Meridian59/run/server/rsc && \
     mv /m59files/*.bof /opt/Meridian59/run/server/memmap && \
+    mv /m59files/kodbase.txt /opt/Meridian59/run/server && \
     # change ownership and permissions on /opt/Meridian59 directories
     chown -R m59-user:meridian59 /opt/Meridian59 && \
     chmod 2775 /opt/Meridian59 && \
     # change windows blackslashes to linux slashes
     sed -i "s^\\\^/^g" /opt/Meridian59/run/server/blakserv.cfg && \
     # add in blackserv.cfg Kodbase reference (replace ../../kod with ./)
+    sed -i "s^..\/..\/kod^.\/^" /opt/Meridian59/run/server/blakserv.cfg && \
     # testing settings below
     # do not leave the maintenance mask open if running in production this is strictly for testing and local management
     sed -i '/\[Socket\]/a MaintenancePort      9998\nMaintenanceMask      0.0.0.0' /opt/Meridian59/run/server/blakserv.cfg && \
@@ -35,4 +37,5 @@ RUN apk update && \
 
 USER m59-user
 
-ENTRYPOINT ["/bin/sh"]
+# ENTRYPOINT ["/bin/sh"]
+CMD /opt/Meridian59/run/server/blakserv
