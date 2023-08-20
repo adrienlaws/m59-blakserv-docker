@@ -4,20 +4,35 @@ ENV PATH="${PATH}:/opt/Meridian59/run/server"
 
 EXPOSE 5959 9998
 
+RUN mkdir -p /m59files
+COPY kodbase.txt /m59files/kodbase.txt
+ADD rsc /m59files
+ADD memmap /m59files
+
 RUN apk update && \
-    # add needed packages including busybox to telnet to maintenance port
     apk add build-base git shadow busybox-extras &&\
     git clone https://github.com/Meridian59/Meridian59.git /opt/Meridian59 && \
     make --directory=/opt/Meridian59/blakserv -f makefile.linux && \
     useradd m59-user && \
     groupadd meridian59 && \
     usermod -a -G meridian59 m59-user && \
+    mv /m59files/*.rsc /opt/Meridian59/run/server/rsc && \
+    mv /m59files/*.bof /opt/Meridian59/run/server/memmap && \
+
+    # change ownership and permissions on /opt/Meridian59 directories
     chown -R m59-user:meridian59 /opt/Meridian59 && \
     chmod 2775 /opt/Meridian59 && \
+
+    # change windows blackslashes to linux slashes
     sed -i "s^\\\^/^g" /opt/Meridian59/run/server/blakserv.cfg && \
+    
+    # testing settings below, comment out as needed
+    # do not leave the maintenance mask open if running in production this is strictly for testing and local management
     sed -i '/\[Socket\]/a MaintenancePort         9998\nMaintenanceMask         0.0.0.0' /opt/Meridian59/run/server/blakserv.cfg
-# add in flush yes to blakserv.cfg
-# copy over local windows files with accounts premade
-# kodbase.txt and all the bof and rsc files - copy them all over from your local windows setup
+    
+    # enable realtime logging (bad for production but good for troubleshooting)
+    sed -i '/\[Channel\]/a Flush         Yes' /opt/Meridian59/run/server/blakserv.cfg
+
+USER m59-user
 
 ENTRYPOINT ["/bin/sh"]
