@@ -18,14 +18,9 @@
 docker run -dit -p 5959:5959 -p 9998:9998 --rm toko5/blakserv-1
 ```
    - This starts a `container` from the downloaded `blakserv` image
-     - it automatically starts a Meridian 59 server with open ports `5959` and `9998`
-   - Here is a description of the options used in this command
-      - The `-d` option means the container will start in "detached" mode (as a background process without a terminal)
-      - `-i` option
-      - The `-t` option
-      - the two `-p` options specify port mapping.  The left is the host system and the right is the container port.
-        - Two ports `5959` and `9998` are mapped.  `5959` is used for the Meridian client to connect to, while `9998` is a maintenance port that you can use to administrate the server with limited capability.
-      - You can log into the terminal by opening Docker Desktop.
+   - This automatically starts a Meridian 59 server with open ports `5959` and `9998`
+      - TCP `5959` is used for the Meridian client to connect to
+      - TCP `9998` is a maintenance port that you can use to administrate the server with limited capability.
       - The `--rm` option means that the container will be deleted on shutdown.  Nothing will be saved.
 4. Create an account on the server either through a telnet session or using the built-in terminal within Docker
    - for docker terminal
