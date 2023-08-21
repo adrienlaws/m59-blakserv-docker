@@ -1,7 +1,7 @@
 # m59-blakserv-docker
 
 
-## Steps to run your Meridian 59 blackserv Linux docker container
+## Steps to run your Meridian 59 blakserv Linux Docker container
 1. Get [Docker Desktop] (https://www.docker.com/products/docker-desktop/)
 2. Get the current image from hub.docker.com or through the Docker Desktop interface
    - click the search bar at the top and enter `blakserv`
