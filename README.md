@@ -13,7 +13,7 @@
 ```
  docker pull toko5/blakserv-1
 ```
-3. Run your blakserv Meridian 59 server by executing this command
+3. Run your `blakserv` Meridian 59 server by executing this command
 
 ```
 docker run -dit -p 5959:5959 -p 9998:9998 --rm toko5/blakserv-1
