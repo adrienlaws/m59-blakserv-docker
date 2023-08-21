@@ -5,7 +5,7 @@
 1. Get the official [Docker Desktop](https://www.docker.com/products/docker-desktop/) application
 2. Get the current Docker `blakserv` image from [hub.docker.com](url) or through the Docker Desktop interface
    - use the search bar at the top of Docker Desktop and search for `blakserv`
-   - click "Pull" to pull the image to your machine (i.e. download)
+   - click `Pull` to pull the image to your machine (i.e. download)
 ![image](https://github.com/adrienlaws/m59-blakserv-docker/assets/4023541/ea8fc7bf-798d-4656-9245-583789d397f2)
 
    - OR use the following command via a terminal
