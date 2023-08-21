@@ -2,9 +2,9 @@
 
 
 ## Steps to run your Meridian 59 blakserv Linux Docker container
-1. Get [Docker Desktop] (https://www.docker.com/products/docker-desktop/)
-2. Get the current image from hub.docker.com or through the Docker Desktop interface
-   - click the search bar at the top and enter `blakserv`
+1. Get the official [Docker Desktop](https://www.docker.com/products/docker-desktop/) application
+2. Get the current Docker `blakserv` image from [hub.docker.com](url) or through the Docker Desktop interface
+   - use the search bar at the top of Docker Desktop and search for `blakserv`
    - click "Pull" to pull the image to your machine (i.e. download)
 ![image](https://github.com/adrienlaws/m59-blakserv-docker/assets/4023541/ea8fc7bf-798d-4656-9245-583789d397f2)
 
@@ -17,6 +17,8 @@
 ```
 docker run -dit -p 5959:5959 -p 9998:9998 --rm blakserv-1
 ```
+   - This starts a `container` from the downloaded `blakserv` image
+     - it automatically starts a Meridian 59 server with ports `5959` and `9998` open
    - Here is a description of the options used in this command
       - The `-d` option means the container will start in "detached" mode (as a background process without a terminal)
       - `-i` option
@@ -26,7 +28,9 @@ docker run -dit -p 5959:5959 -p 9998:9998 --rm blakserv-1
       - You can log into the terminal by opening Docker Desktop.
       - The `--rm` option means that the container will be deleted on shutdown.  Nothing will be saved.
 
-4. Configure your local dev Meridian 59 client to connect to localhost on port `5959`
+4. Create an account on the server either through a telnet session or using the built-in terminal within Docker
+   - for docker terminal 
+6. Configure your local Meridian 59 client to connect to localhost on port `5959`
    - the easiest way is to configure a shortcut to `meridian.exe` with the /H and /P flags set
    - example
 ```
