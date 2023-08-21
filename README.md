@@ -23,16 +23,17 @@ docker run -dit -p 5959:5959 -p 9998:9998 --rm toko5/blakserv-1
       - TCP `9998` is a maintenance port that you can use to administrate the server with limited capability.
       - The `--rm` option means that the container will be deleted on shutdown.  Nothing will be saved.
 4. Create an account on the server either through a telnet session or using the built-in terminal within Docker
-   - for docker terminal
+   - Using Putty
       - Connect to the maintenance port to add a Meridian 59 user account so you can log in with the client
-   - You can use Putty to connect via a RAW TCP connection on port 9998
-   - example
-   - ![image](https://github.com/adrienlaws/m59-blakserv-docker/assets/4023541/f609ccba-09c5-47df-b2eb-ed9c54cb8c63)
-   - OR you can use built-in commands to connect to the maintenance port from the container itself
+      - You can use Putty to connect via a RAW TCP connection on port 9998
+      - example
+      - ![image](https://github.com/adrienlaws/m59-blakserv-docker/assets/4023541/f609ccba-09c5-47df-b2eb-ed9c54cb8c63)
+   - OR Use Docker Terminal
+      - you can use built-in commands to connect to the maintenance port from the container itself
       - Open Containers then click on the randomly generated container name (in this example `crazy_heyrovsky`)
       - ![image](https://github.com/adrienlaws/m59-blakserv-docker/assets/4023541/61d30cd5-152d-4309-a570-cd44de19791f)
       - Click on `Terminal` to open a terminal session
-![image](https://github.com/adrienlaws/m59-blakserv-docker/assets/4023541/e44fc83a-fbfd-4022-bbfc-98b320923223)
+      - ![image](https://github.com/adrienlaws/m59-blakserv-docker/assets/4023541/e44fc83a-fbfd-4022-bbfc-98b320923223)
       - Create a local connection to the maintenance port by typing the following
 ```
 busybox-extras telnet localhost 9998
