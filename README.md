@@ -54,3 +54,4 @@ C:\Meridian59\run\localclient\meridian.exe /U:test /W:test /H:localhost /P:5959
 ```
    - ![image](https://github.com/adrienlaws/m59-blakserv-docker/assets/4023541/85e5491e-bc25-43ec-bf8d-b448a8138a05)
 
+You should now be able to log into your `blakserv` Docker container server through your local Windows Meridian 59 client.
