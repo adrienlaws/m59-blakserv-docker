@@ -19,7 +19,7 @@ docker run -dit -p 5959:5959 -p 9998:9998 --rm toko5/blakserv-1
 ```
    - This starts a `container` from the downloaded `blakserv` image
    - This automatically starts a Meridian 59 server with open ports `5959` and `9998`
-      - TCP `5959` is used for the Meridian client to connect to
+      - TCP `5959` is used by the Meridian client
       - TCP `9998` is a maintenance port that you can use to administrate the server with limited capability.
       - The `--rm` option means that the container will be deleted on shutdown.  Nothing will be saved.
 4. Create an account on the server either through a telnet session or using the built-in terminal within Docker
