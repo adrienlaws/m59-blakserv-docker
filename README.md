@@ -15,7 +15,7 @@
 3. Run your blakserv Meridian 59 server by executing this command
 
 ```
-docker run -dit -p 5959:5959 -p 9998:9998 --rm blakserv-1
+docker run -dit -p 5959:5959 -p 9998:9998 --rm toko5/blakserv-1
 ```
    - This starts a `container` from the downloaded `blakserv` image
      - it automatically starts a Meridian 59 server with open ports `5959` and `9998`
@@ -29,13 +29,27 @@ docker run -dit -p 5959:5959 -p 9998:9998 --rm blakserv-1
       - The `--rm` option means that the container will be deleted on shutdown.  Nothing will be saved.
 4. Create an account on the server either through a telnet session or using the built-in terminal within Docker
    - for docker terminal
-   -    - Connect to the maintenance port to add a Meridian 59 user account so you can log in with the client
+      - Connect to the maintenance port to add a Meridian 59 user account so you can log in with the client
    - You can use Putty to connect via a RAW TCP connection on port 9998
-   - To add a test user with account test/test when that terminal opens type the following
+   - example
+![image](https://github.com/adrienlaws/m59-blakserv-docker/assets/4023541/f609ccba-09c5-47df-b2eb-ed9c54cb8c63)
+   - OR you can use built-in commands to connect to the maintenance port from the container itself
+      - Open Containers then click on the randomly generated container name (in this example `crazy_heyrovsky`)
+![image](https://github.com/adrienlaws/m59-blakserv-docker/assets/4023541/61d30cd5-152d-4309-a570-cd44de19791f)
+      - Click on `Terminal` to open a terminal session
+![image](https://github.com/adrienlaws/m59-blakserv-docker/assets/4023541/e44fc83a-fbfd-4022-bbfc-98b320923223)
+      - Create a local connection to the maintenance port by typing the following
+```
+busybox-extras telnet localhost 9998
+```
+   - Then paste in following commands to add a test user with account name test / password test
 ```
 create automated test test
 create user 3 
 ```
+   - example
+![image](https://github.com/adrienlaws/m59-blakserv-docker/assets/4023541/09d02cbc-31b4-4548-8266-662f53c4c8d4)
+
 5. Configure your local Meridian 59 client to connect to localhost on port `5959`
    - the easiest way is to configure a shortcut to `meridian.exe` with the /H and /P flags set
    - example
