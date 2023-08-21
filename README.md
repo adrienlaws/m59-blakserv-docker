@@ -29,7 +29,7 @@ docker run -dit -p 5959:5959 -p 9998:9998 --rm toko5/blakserv-1
       - You can use Putty to connect via a RAW TCP connection on port 9998
       - example
       - ![image](https://github.com/adrienlaws/m59-blakserv-docker/assets/4023541/f609ccba-09c5-47df-b2eb-ed9c54cb8c63)
-   - OR Use Docker Terminal
+   - OR Using Docker Terminal
       - you can use built-in commands to connect to the maintenance port from the container itself
       - Open Containers then click on the randomly generated container name (in this example `crazy_heyrovsky`)
       - ![image](https://github.com/adrienlaws/m59-blakserv-docker/assets/4023541/61d30cd5-152d-4309-a570-cd44de19791f)
